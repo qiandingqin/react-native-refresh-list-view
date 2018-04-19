@@ -101,6 +101,17 @@ class RefreshListView extends PureComponent<Props, State> {
         return (refreshState == RefreshState.Idle)
     }
 
+    __self_render(){
+        return (
+            <View>
+                {
+                    this.props.emptyIcon && <ActivityIndicator style={{marginTop:50}} size="small" color="#888888" />
+                }
+                <Text style={{textAlign:'center',marginTop:this.props.emptyIcon?10:80}}>{this.props.text || '正在加载'}</Text>
+            </View>
+        );
+    };
+
     render() {
         log('[RefreshListView]  render')
 
@@ -114,9 +125,8 @@ class RefreshListView extends PureComponent<Props, State> {
                 refreshing={this.props.refreshState == RefreshState.HeaderRefreshing}
                 ListFooterComponent={this.renderFooter}
                 onEndReachedThreshold={0.1}
-
+                ListEmptyComponent={() => {return this.__self_render()}}
                 renderItem={renderItem}
-
                 {...rest}
             />
         )
