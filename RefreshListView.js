@@ -112,6 +112,10 @@ class RefreshListView extends PureComponent<Props, State> {
         );
     };
 
+    keyExtractor = (item, index) => {
+        return index.toString();
+    }
+
     render() {
         log('[RefreshListView]  render')
 
@@ -120,6 +124,7 @@ class RefreshListView extends PureComponent<Props, State> {
         return (
             <FlatList
                 ref={this.props.listRef}
+                keyExtractor={this.keyExtractor}
                 onEndReached={this.onEndReached}
                 onRefresh={this.onHeaderRefresh}
                 refreshing={this.props.refreshState == RefreshState.HeaderRefreshing}
