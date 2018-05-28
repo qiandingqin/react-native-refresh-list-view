@@ -114,7 +114,7 @@ class RefreshListView extends PureComponent<Props, State> {
                 refreshing={this.props.refreshState == RefreshState.HeaderRefreshing}
                 ListFooterComponent={this.renderFooter}
                 onEndReachedThreshold={0.1}
-
+                showsVerticalScrollIndicator={false}
                 renderItem={renderItem}
 
                 {...rest}
