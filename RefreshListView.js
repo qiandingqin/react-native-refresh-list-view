@@ -132,6 +132,7 @@ class RefreshListView extends PureComponent<Props, State> {
                 onEndReachedThreshold={0.1}
                 ListEmptyComponent={() => {return this.__self_render()}}
                 renderItem={renderItem}
+                showsVerticalScrollIndicator={false}
                 {...rest}
             />
         )
